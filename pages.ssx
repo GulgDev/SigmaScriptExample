@@ -1,0 +1,102 @@
+lib pages;
+
+use dom;
+use components;
+
+fn <page title="Example"> {
+    dom_title(title);
+    ret <div>{ children }</div>;
+}
+
+fn <page-404> {
+    ret <page title="Page not found">
+        <span style="font-size: 48px;">Page not found</span>;
+    </page>;
+}
+
+fn <page-home> {
+    ret <page>
+        <link href="/test">Click me</link> for a cool 404 message
+    </page>;
+}
+
+fn <page-page1> {
+    ret <page title="Page 1">
+        This is an example page
+    </page>;
+}
+
+fn <page-page2> {
+    ret <page title="Page 2">
+        This is another example page
+    </page>;
+}
+
+fn <cat-column width="0"> {
+    ret <div class="cat-column-container">
+        <div class="cat-column" style={"width: " @ width @ "px;"}>
+            { children }
+        </div>
+    </div>;
+}
+
+fn <cats-1> {
+    ret <div>
+        <img src="https://i.pinimg.com/736x/d8/55/c6/d855c66f95e9d3babeebd1e88bf4026d.jpg" />
+        <img src="https://i.pinimg.com/originals/b6/a6/d5/b6a6d50de7eb36065b98ebd254d46cd5.jpg" />
+        <img src="https://hips.hearstapps.com/hmg-prod/images/cute-cat-photos-1593441022.jpg?crop=0.430xw:1.00xh;0.267xw,0&resize=640:*" />
+        <img src="https://images.ctfassets.net/ub3bwfd53mwy/5WFv6lEUb1e6kWeP06CLXr/acd328417f24786af98b1750d90813de/4_Image.jpg?w=750" />
+        <img src="https://i.pinimg.com/736x/ec/bc/49/ecbc49a1bc39c351299289978dd33e20.jpg" />
+    </div>;
+}
+
+fn <cats-2> {
+    ret <div>
+        <img src="https://www.ezoic.com/wp-content/uploads/2019/06/kitty.jpg" />
+        <img src="https://cdn-prd.content.metamorphosis.com/wp-content/uploads/sites/6/2022/12/shutterstock_781327003-1-768x512.jpg" />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1cYUOsKjkW972LiEMAW8nS2ITfJpg8nUGqA&s" />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHJCnDrAAnIoJvDqeIrpG2Xc5pNbr-pfmY8g&s" />
+    </div>;
+}
+
+fn <cats-3> {
+    ret <div>
+        <img src="https://static.demilked.com/wp-content/uploads/2023/05/cute-cats-one-orange-braincell-23.jpeg" />
+        <img src="https://i.pinimg.com/1200x/8c/97/f1/8c97f10a5565a28e26d0cc0f093c6185.jpg" />
+        <img src="https://static.demilked.com/wp-content/uploads/2023/05/cute-cats-one-orange-braincell-1.jpeg" />
+        <img src="https://static.boredpanda.com/blog/wp-content/uploads/2021/02/602be3cb53c96_65fmdbh1ja951__700.jpg" />
+    </div>;
+}
+
+fn <cats-4> {
+    ret <div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj_0Q5CwWO5kF6WNsetM7RqND6rwjbmpgrnw&s" />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZcGKzFZvkteVqtvuep-PUCWVjDMS-JwF0cw&s" />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmHDuIowzBG_vZR_X0MPvya550Y9FqkYfDWQ&s" />
+        <img src="https://w0.peakpx.com/wallpaper/888/834/HD-wallpaper-3-cat-cat-cats-cool-cute-kittens-little-thumbnail.jpg" />
+        <img src="https://i.pinimg.com/originals/00/8d/de/008ddec7d6c07d03c332e0ea8be3ebd3.jpg" />
+    </div>;
+}
+
+fn <page-cats> {
+    ret <page title="Cute cats">
+        <div class="cat-grid">
+            <cat-column width="200">
+                <cats-1 />
+                <cats-1 />
+            </cat-column>
+            <cat-column width="400">
+                <cats-2 />
+                <cats-2 />
+            </cat-column>
+            <cat-column width="200">
+                <cats-3 />
+                <cats-3 />
+            </cat-column>
+            <cat-column width="400">
+                <cats-4 />
+                <cats-4 />
+            </cat-column>
+        </div>
+    </page>;
+}

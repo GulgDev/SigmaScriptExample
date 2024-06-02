@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    background-color: #300;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #fff;
+}
+
+a {
+    color: #ccf;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #a11;
+    padding: 16px;
+    height: 96px;
+}
+
+.title {
+    margin-left: 20px;
+    font-size: 40px;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    font-size: 20px;
+    min-height: calc(100vh - 136px);
+    box-sizing: border-box;
+}
+
+.navbar {
+    padding: 8px 0;
+    box-sizing: border-box;
+    width: 280px;
+    background-color: #a11;
+    border-radius: 8px;
+}
+
+.navbar > ol {
+    margin: 0;
+}
+
+.page-container {
+    padding: 8px 16px;
+    flex: auto;
+    background-color: #a11;
+    border-radius: 8px;
+}
+
+.cat-grid, .cat-column, .cat-column > div {
+    display: flex;
+    gap: 4px;
+}
+
+.cat-grid {
+    justify-content: center;
+    overflow: hidden;
+    width: calc(100vw - 372px);
+    height: calc(100vh - 192px);
+}
+
+.cat-column, .cat-column > div {
+    flex-direction: column;
+}
+
+.cat-column-container:nth-child(odd) > .cat-column {
+    animation: up 10s linear 0s infinite;
+}
+
+.cat-column-container:nth-child(even) > .cat-column {
+    animation: down 10s linear -2s infinite;
+}
+
+.cat-column img {
+    width: 100%;
+}
+
+@keyframes up {
+    from { transform: translateY(-50%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes down {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50%); }
+}

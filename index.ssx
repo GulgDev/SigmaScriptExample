@@ -1,0 +1,78 @@
+use dom;
+use ref;
+use fn;
+use components;
+use routes;
+use pages;
+
+fn get_current_page() {
+    current_path = ref_get(path);
+    if (current_path = "/") {
+        ret <page-home />;
+    } else {
+        if (current_path = "/page1") {
+            ret <page-page1 />;
+        } else {
+            if (current_path = "/page2") {
+                ret <page-page2 />;
+            } else {
+                if (current_path = "/cats") {
+                    ret <page-cats />;
+                } else {
+                    ret <page-404 />;
+                }
+            }
+        }
+    }
+}
+
+fn <page-container> {
+    container = <div class="page-container" />;
+    current_page = ref();
+    fn route_changed() {
+        if (!(ref_get(current_page) = "unknown")) {
+            dom_remove(ref_get(current_page));
+        }
+        ref_set(current_page, get_current_page());
+        dom_append(container, ref_get(current_page));
+    }
+    route_changed();
+    ref_set(on_route_changed, fn("route_changed"));
+    ret container;
+}
+
+fn <app-icon> {
+    ret <img width="64" height="64" src="https://github.com/GulgDev/SigmaScript/raw/main/demo/logo.png" />;
+}
+
+fn <app-header> {
+    ret <div class="header">
+        <app-icon />
+        <span class="title">I am a website written in SSX!</span>
+    </div>;
+}
+
+fn <navbar> {
+    ret <div class="navbar">
+        <ol>
+            <li><link href="/">Home</link></li>
+            <li><link href="/page1">Page 1</link></li>
+            <li><link href="/page2">Page 2</link></li>
+            <li><link href="/cats">Cute cats</link></li>
+        </ol>
+    </div>;
+}
+
+fn <app> {
+    ret <div>
+        <app-header />
+        <div class="main-content">
+            <navbar />
+            <page-container />
+        </div>
+    </div>;
+}
+
+dom_append(dom_body,
+    <app />
+);

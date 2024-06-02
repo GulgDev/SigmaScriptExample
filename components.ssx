@@ -1,0 +1,8 @@
+lib components;
+
+use routes;
+
+fn <link href="#"> {
+    fn click() { goto(href); }
+    ret <a href="#" onclick="click">{ children }</a>;
+}
