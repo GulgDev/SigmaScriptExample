@@ -10,7 +10,7 @@ fn <page title="Example"> {
 
 fn <page-404> {
     ret <page title="Page not found">
-        <span style="font-size: 48px;">Page not found</span>;
+        <span style="font-size: 48px;">Page not found</span>
     </page>;
 }
 
