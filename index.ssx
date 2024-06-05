@@ -7,23 +7,19 @@ use pages;
 
 fn get_current_page() {
     current_path = ref_get(path);
-    if (current_path = "/") {
+    if current_path = "/" {
         ret <page-home />;
-    } else {
-        if (current_path = "/page1") {
-            ret <page-page1 />;
-        } else {
-            if (current_path = "/page2") {
-                ret <page-page2 />;
-            } else {
-                if (current_path = "/cats") {
-                    ret <page-cats />;
-                } else {
-                    ret <page-404 />;
-                }
-            }
-        }
     }
+    if current_path = "/page1" {
+        ret <page-page1 />;
+    }
+    if current_path = "/page2" {
+        ret <page-page2 />;
+    }
+    if current_path = "/cats" {
+        ret <page-cats />;
+    }
+    ret <page-404 />;
 }
 
 fn <page-container> {
@@ -42,7 +38,7 @@ fn <page-container> {
 }
 
 fn <app-icon> {
-    ret <img width="64" height="64" src="https://github.com/GulgDev/SigmaScript/raw/main/demo/logo.png" />;
+    ret <img width="64" height="64" src="https://gulgdev.github.io/SigmaScript/demo/logo.png" />;
 }
 
 fn <app-header> {
